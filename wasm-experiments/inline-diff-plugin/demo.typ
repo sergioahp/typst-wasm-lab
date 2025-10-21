@@ -15,7 +15,7 @@
 + #diff("let x = 1;", "let x = 10;")
   // expected: let x = 1{+0+};
 
-#let err = diffmod.inline_diff(bytes("\u{0}"), bytes("\u{1}"))
+#let err = diffmod.inline_diff(bytes((0xff,)), bytes((0xff,)))
 #let err-text = str(err)
 
 strong("Error message:") \
