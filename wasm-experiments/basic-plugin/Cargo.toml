@@ -1,0 +1,10 @@
+[package]
+name = "basic-plugin"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wasm-minimal-protocol = "0.1.0"
+
+[lib]
+crate-type = ["cdylib"]

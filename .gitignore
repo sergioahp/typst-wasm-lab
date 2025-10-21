@@ -1,0 +1,10 @@
+# Build artefacts
+target/
+**/target/
+
+# Typst outputs
+*.pdf
+*.png
+
+# Misc
+.DS_Store

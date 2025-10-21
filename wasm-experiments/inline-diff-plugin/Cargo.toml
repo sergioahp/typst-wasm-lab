@@ -1,0 +1,11 @@
+[package]
+name = "inline-diff-plugin"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+similar = "2.5.0"
+wasm-minimal-protocol = "0.1.0"
+
+[lib]
+crate-type = ["cdylib"]
