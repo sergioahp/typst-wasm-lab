@@ -12,6 +12,13 @@ Expose an inline diff helper that wraps deletions/insertions with `[- ... -]` an
 - **v0**: baseline string passthrough to ensure the protocol wiring works (kept locally while iterating).
 - **v1**: added Myers character diff using `similar` crate and wrapped changes in custom markers.
 - **v2**: added validation + deterministic error message for non UTF-8 input and regression tests.
+- **v3**: exports `inline_diff_segments` which returns structured JSON (line numbers + highlight spans) for Typst renderers.
+
+## Typst Demo
+`demo.typ` shows how to load the compiled WASM module, call `inline_diff_segments`, and render GitHub-style inline diffs with the helper in `typst/inline-diff.typ`. Compile with:
+```sh
+typst compile --root . wasm-experiments/inline-diff-plugin/demo.typ
+```
 
 ## Stumbling Blocks
 - Remember to set `crate-type = ["cdylib"]`; otherwise Typst cannot load the module.

@@ -16,7 +16,7 @@ Confirms the Myers diff logic stays deterministic and UTF-8 handling works.
 
 ## 3. Compile the Typst Demo (PDF)
 ```sh
-typst compile wasm-experiments/inline-diff-plugin/demo.typ wasm-experiments/inline-diff-plugin/demo.pdf
+typst compile --root . wasm-experiments/inline-diff-plugin/demo.typ wasm-experiments/inline-diff-plugin/demo.pdf
 ```
 Inspect the PDF with a viewer (`xdg-open`, `evince`, etc.) to ensure:
 - `ca{+r+}t` and `let x = 1{+0+};` render as expected.
@@ -24,7 +24,7 @@ Inspect the PDF with a viewer (`xdg-open`, `evince`, etc.) to ensure:
 
 ## 4. Export to PNG for Quick Glance
 ```sh
-typst compile wasm-experiments/inline-diff-plugin/demo.typ wasm-experiments/inline-diff-plugin/demo.png
+typst compile --root . wasm-experiments/inline-diff-plugin/demo.typ wasm-experiments/inline-diff-plugin/demo.png
 ```
 View the PNG using an image tool of choice (`feh`, `display`, `sxiv`). This avoids launching a full PDF viewer when sanity-checking small changes.
 

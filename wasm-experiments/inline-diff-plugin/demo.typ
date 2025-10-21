@@ -1,22 +1,9 @@
-#let diffmod = plugin("target/wasm32-unknown-unknown/release/inline_diff_plugin.wasm")
+#import "../../typst/inline-diff.typ": inline_diff
 
-#let diff(before, after) = str(
-  diffmod.inline_diff(
-    bytes(before),
-    bytes(after),
-  )
-)
+#let diffmod = plugin("target/wasm32-unknown-unknown/release/inline_diff_plugin.wasm")
 
 = Inline Diff Plugin Demo
 
-+ #diff("cat", "cart")
-  // expected: ca{+r+}t
+#inline_diff(diffmod, "let x = 1;\nprint(x);\n", "let x = 10;\nprint(x);\n", lang: "rust")
 
-+ #diff("let x = 1;", "let x = 10;")
-  // expected: let x = 1{+0+};
-
-#let err = diffmod.inline_diff(bytes((0xff,)), bytes((0xff,)))
-#let err-text = str(err)
-
-strong("Error message:") \
-#err-text
+#inline_diff(diffmod, "def nonsense(n):\n  for x in range(len(n)):\n    print(x)\n", "def nonsense(n):\n  for x in range(len(n)):\n    print(\"Now this is different, isn't it?\", x)\n", lang: "python")
